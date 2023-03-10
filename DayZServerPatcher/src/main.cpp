@@ -3,7 +3,7 @@
 
 std::string consoleTitle = "DayZ patched version";
 std::string filePath, fileBakPath;
-std::vector<uint8_t> fileBytes;
+std::vector<BYTE> fileBytes;
 
 int main(int argc, char* argv[]) {
     if (argv[1] == nullptr || !std::filesystem::exists(argv[1])) {
@@ -24,6 +24,8 @@ int main(int argc, char* argv[]) {
 
     if (!Utils::WriteVectorToFile(fileBakPath, &fileBytes)) {
         std::cout << "Failed to create backup of original dayz server." << std::endl;
+        system("pause");
+        return 0;
     }
 
     std::cout << "Created backup." << std::endl;
