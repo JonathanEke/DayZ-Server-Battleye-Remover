@@ -16,7 +16,7 @@ namespace Utils {
 		if (!outfile)
 			return false;
 
-		outfile.write((const char*)in->data(), in->size());
+		outfile.write(reinterpret_cast<const char*>(in->data()), in->size());
 
 		outfile.close();
 		return true;
@@ -50,7 +50,7 @@ namespace Utils {
 			}
 
 			if (found) {
-				return (DWORD64)lpCurrentByte;
+				return reinterpret_cast<DWORD64>(lpCurrentByte);
 			}
 		}
 
