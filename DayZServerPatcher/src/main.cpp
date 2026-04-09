@@ -30,9 +30,9 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Created backup." << std::endl;
 
-    //40 53 55 56 57 41 54 48 81 EC ? ? ? ? 45 33 E4 48 8B D9 44 89 (old)
+    //40 53 55 56 57 41 54 48 81 EC ? ? ? ? 45 33 E4 48 8B D9 44 89 (old) (went back to this)
     //48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 45 33 F6 48 8B D9 44 89 (new)
-    auto address = Utils::Scan(fileBytes.data(), fileBytes.size(), "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 45 33 F6 48 8B D9 44 89");
+    auto address = Utils::Scan(fileBytes.data(), fileBytes.size(), "40 53 55 56 57 41 54 48 81 EC ? ? ? ? 45 33 E4 48 8B D9 44 89");
     if (!address) {
         std::cout << "Failed to find battleye init function." << std::endl;
         system("pause");
