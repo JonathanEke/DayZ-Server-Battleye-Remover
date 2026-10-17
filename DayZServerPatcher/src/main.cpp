@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 
     //40 53 55 56 57 41 54 48 81 EC ? ? ? ? 45 33 E4 48 8B D9 44 89 (old) (went back to this)
     //48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 45 33 F6 48 8B D9 44 89 (new)
-    auto address = Utils::Scan(fileBytes.data(), fileBytes.size(), "49 8d 8e 60 01 00 00 e8 3c 16 0b 00 84 c0");
+    auto address = Utils::Scan(fileBytes.data(), fileBytes.size(), "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 C7 44 24 ? ? ? ? ? 48 8B D9");
     if (!address) {
         std::cout << "Failed to find battleye init function." << std::endl;
         system("pause");
